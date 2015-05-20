@@ -1,7 +1,14 @@
-== Field definition ==
+== Fields definition ==
 
 {|
 ! Field !! Description
 |-
 ! currency_unit || '''(required)''' ISO 4217 3-letter code representing the unit of account for the asset.
-|}
+|
+! country || '''(required)''' ISO 3166 2-letter code representing the country of issuance.
+|
+! state || 2-letter code representing the state or province of issuance.
+|
+! expires || UTC Timestamp formatted date/time when the asset is no longer valid for redemption by the issuer.
+|
+|}	
