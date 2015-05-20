@@ -1,0 +1,7 @@
+== Field definition ==
+
+{|
+! Field !! Description
+|-
+! currency_unit || '''(required)''' ISO 4217 3-letter code representing the unit of account for the asset.
+|}
