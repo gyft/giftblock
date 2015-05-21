@@ -1,4 +1,38 @@
-== Fields definition ==
+<pre>
+	Title: Store Card Asset Definition File Extensions.
+	Author: Guillaume Lebleu <giyom@gyft.com>
+	Created: 2015-05-20
+</pre>
+
+== Abstract ==
+
+This document refines existing fields and defines new fields of the Asset Definition File.
+
+== Motivation ==
+
+Gift card assets, store card assets, prepaid card assets have specific characteristics that are not captured in the Open Assets Protocol' Asset Definition File.
+
+== Specification ==
+
+=== Existing fields ===
+
+The following existing fields are re-used and their definition is refined.
+
+{|
+! Field !! Description
+|-
+! name_short || '''(required)''' For assets of type <code>storeCard</code>, ISO 4217 3-letter code representing the unit of account for the asset.
+|-
+! type || '''(required)''' the value is <code>storeCard</code>.
+|-
+! icon_url || For assets of type <code>storeCard</code>, the icon is used to represent the card.
+|-
+! image_url || For assets of type <code>storeCard</code>, the URL to an image representing the front of the card. Recommended size 1,033px x 657px (3.452" x 2.17").
+|}
+
+=== New fields ===
+
+The following fields are added:
 
 {|
 ! Field !! Description
@@ -10,4 +44,8 @@
 ! state || 2-letter code representing the state or province of issuance.
 |-
 ! expires || UTC Timestamp formatted date/time when the asset is no longer valid for redemption by the issuer.
+|-
+! logo_url || For assets of type <code>storeCard</code>, the URL to a logo representing the issuer.
+|-
+! back_image_url || For assets of type <code>storeCard</code>, the URL to an image representing the back of the card. Recommended size 1,033px x 657px (3.452" x 2.17").
 |}	
