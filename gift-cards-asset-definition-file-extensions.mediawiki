@@ -1,7 +1,7 @@
 <pre>
-	Title: Store Card Asset Definition File Extensions.
-	Author: Guillaume Lebleu <giyom@gyft.com>
-	Created: 2015-05-20
+Title: Store Card Asset Definition File Extensions.
+Author: Guillaume Lebleu <giyom@gyft.com>
+Created: 2015-05-20
 </pre>
 
 == Abstract ==
