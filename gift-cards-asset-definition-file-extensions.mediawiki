@@ -18,12 +18,22 @@ Gift card assets, store card assets, prepaid card assets have specific character
 
 The following existing fields are re-used and their definition is refined.
 
+====asset fields====
+
 {|
 ! Field !! Description
 |-
 ! name_short || '''(required)''' For assets of type <code>storeCard</code>, ISO 4217 3-letter code representing the unit of account for the asset.
 |-
+! description || For assets of type <code>storeCard</code>, a brief description of the asset, used for accessibility.
+|-
 ! type || '''(required)''' the value is <code>storeCard</code>.
+|}
+
+====card fields====
+
+{|
+! Field !! Description
 |-
 ! icon_url || For assets of type <code>storeCard</code>, the icon is used to represent the card.
 |-
@@ -33,6 +43,8 @@ The following existing fields are re-used and their definition is refined.
 === New fields ===
 
 The following fields are added:
+
+====asset fields====
 
 {|
 ! Field !! Description
@@ -47,5 +59,21 @@ The following fields are added:
 |-
 ! logo_url || For assets of type <code>storeCard</code>, the URL to a logo representing the issuer.
 |-
+! locations_url || For assets of type <code>storeCard</code>, the URL to a list of locations accepting the asset.
+|}
+
+====card fields====
+
+{|
+! Field !! Description
+|-
 ! back_image_url || For assets of type <code>storeCard</code>, the URL to an image representing the back of the card. Recommended size 1,033px x 657px (3.452" x 2.17").
-|}	
+|-
+! primary_color || For assets of type <code>storeCard</code>, the foreground color of the card, as a CSS-style RGB triple.
+|-
+! background_color || For assets of type <code>storeCard</code>, the background color of the card, as a CSS-style RGB triple.
+|-
+! text_color || For assets of type <code>storeCard</code>, the color of the text on the card, as a CSS-style RGB triple.
+|-
+! terms || For assets of type <code>storeCard</code>, the terms and conditions displayed on the card.
+|}
