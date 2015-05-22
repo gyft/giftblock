@@ -18,22 +18,18 @@ Gift card assets, store card assets, prepaid card assets have specific character
 
 The following existing fields are re-used and their definition is refined.
 
-====asset fields====
-
-{|
+{| class="wikitable"
 ! Field !! Description
+|-
+|rowspan="2"| General
 |-
 ! name_short || '''(required)''' For assets of type <code>storeCard</code>, ISO 4217 3-letter code representing the unit of account for the asset.
 |-
 ! description || For assets of type <code>storeCard</code>, a brief description of the asset, used for accessibility.
 |-
 ! type || '''(required)''' the value is <code>storeCard</code>.
-|}
-
-====card fields====
-
-{|
-! Field !! Description
+|- 
+|rowspan="2"| Visual
 |-
 ! icon_url || For assets of type <code>storeCard</code>, the icon is used to represent the card.
 |-
@@ -44,28 +40,30 @@ The following existing fields are re-used and their definition is refined.
 
 The following fields are added:
 
-====asset fields====
-
-{|
+{| class="wikitable"
 ! Field !! Description
 |-
+|rowspan="2"| General
+|-
 ! currency_unit || '''(required)''' ISO 4217 3-letter code representing the unit of account for the asset.
+|-
+! asset_group || Arbitrary string describing a group of assets. Assets belonging to the same group must use the same <code>name_short</code>.
+|-
+|rowspan="2"| Legal
 |-
 ! country || '''(required)''' ISO 3166 2-letter code representing the country of issuance.
 |-
 ! state || 2-letter code representing the state or province of issuance.
 |-
+! terms || The terms and conditions displayed on the card.
+|-
+|rowspan="2"| Financial
+|-
 ! expires || UTC Timestamp formatted date/time when the asset is no longer valid for redemption by the issuer.
 |-
-! logo_url || The URL to a logo representing the issuer.
+|rowspan="2"| Visual
 |-
-! locations_url || The URL to a list of locations accepting the asset.
-|}
-
-====card fields====
-
-{|
-! Field !! Description
+! logo_url || The URL to a logo representing the issuer.
 |-
 ! back_image_url || The URL to an image representing the back of the card. Recommended size 1,033px x 657px (3.452" x 2.17").
 |-
@@ -75,5 +73,12 @@ The following fields are added:
 |-
 ! text_color || The color of the text on the card, as a CSS-style RGB triple.
 |-
-! terms || The terms and conditions displayed on the card.
+|rowspan="2"| Commerce
+|-
+! locations_url || The URL to a list of locations accepting the asset.
 |}
+
+=== Location file format ===
+
+JSON format
+
