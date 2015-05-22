@@ -18,7 +18,7 @@ Gift card assets, store card assets, prepaid card assets have specific character
 
 The following existing fields are re-used and their definition is refined.
 
-{| class="wikitable"
+{| 
 ! Field !! Description
 |-
 !colspan="2"| General
@@ -40,7 +40,7 @@ The following existing fields are re-used and their definition is refined.
 
 The following fields are added:
 
-{| class="wikitable"
+{| 
 ! Field !! Description
 |-
 !colspan="2"| General 
