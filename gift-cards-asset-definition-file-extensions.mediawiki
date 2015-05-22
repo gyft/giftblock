@@ -43,7 +43,7 @@ The following fields are added:
 {| class="wikitable"
 ! Field !! Description
 |-
-!rowspan="2"|| General
+!rowspan="2"| General |
 |-
 ! currency_unit || '''(required)''' ISO 4217 3-letter code representing the unit of account for the asset.
 |-
