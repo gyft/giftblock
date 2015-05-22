@@ -21,7 +21,7 @@ The following existing fields are re-used and their definition is refined.
 {| class="wikitable"
 ! Field !! Description
 |-
-!colspan="2"|| General
+!colspan="2"| General
 |-
 ! name_short || '''(required)''' For assets of type <code>storeCard</code>, ISO 4217 3-letter code representing the unit of account for the asset.
 |-
@@ -29,7 +29,7 @@ The following existing fields are re-used and their definition is refined.
 |-
 ! type || '''(required)''' the value is <code>storeCard</code>.
 |- 
-!colspan="2"|| Visual
+!colspan="2"| Visual
 |-
 ! icon_url || For assets of type <code>storeCard</code>, the icon is used to represent the card.
 |-
@@ -49,7 +49,7 @@ The following fields are added:
 |-
 ! asset_group || Arbitrary string describing a group of assets. Assets belonging to the same group must use the same <code>name_short</code>.
 |-
-!colspan="2"|| Legal
+!colspan="2"| Legal
 |-
 ! country || '''(required)''' ISO 3166 2-letter code representing the country of issuance.
 |-
@@ -57,11 +57,11 @@ The following fields are added:
 |-
 ! terms || The terms and conditions displayed on the card.
 |-
-!colspan="2"|| Financial
+!colspan="2"| Financial
 |-
 ! expires || UTC Timestamp formatted date/time when the asset is no longer valid for redemption by the issuer.
 |-
-!colspan="2"|| Visual
+!colspan="2"| Visual
 |-
 ! logo_url || The URL to a logo representing the issuer.
 |-
@@ -73,7 +73,7 @@ The following fields are added:
 |-
 ! text_color || The color of the text on the card, as a CSS-style RGB triple.
 |-
-!colspan="2"|| Commerce
+!colspan="2"| Commerce
 |-
 ! locations_url || The URL to a list of locations accepting the asset.
 |}
