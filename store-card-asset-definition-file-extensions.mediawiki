@@ -25,6 +25,8 @@ The following existing fields are re-used and their definition is refined.
 |-
 ! name_short || '''(required)''' For assets of type <code>storeCard</code>, ISO 4217 3-letter code representing the unit of account for the asset.
 |-
+! contract_url || '''(required)''' For assets of type <code>storeCard</code>, the URL containing the terms and conditions of the asset.
+|-
 ! description || For assets of type <code>storeCard</code>, a brief description of the asset, used for accessibility.
 |-
 ! type || '''(required)''' the value is <code>storeCard</code>.
@@ -55,11 +57,11 @@ The following fields are added:
 |-
 ! state || 2-letter code representing the state or province of issuance.
 |-
-! terms || The terms and conditions displayed on the card.
+! terms || '''(required)''' The terms and conditions displayed on the card. At most 4096 characters. 512 or less characters recommended.
 |-
 !colspan="2"| Financial
 |-
-! expires || UTC Timestamp formatted date/time when the asset is no longer valid for redemption by the issuer.
+! expires || ISO 8601 formatted. Either explicit UTC date/time when the asset is no longer valid for redemption by the issuer, or period from date/time of issuance after which asset is no longer valid for redemption by the issuer.
 |-
 !colspan="2"| Visual
 |-
