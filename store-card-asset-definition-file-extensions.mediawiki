@@ -23,7 +23,7 @@ The following existing fields are re-used and their definition is refined.
 |-
 !colspan="2"| General
 |-
-! name_short || '''(required)''' For assets of type <code>storeCard</code>, ISO 4217 3-letter code representing the unit of account for the asset.
+! name_short || '''(required)''' For assets of type <code>storeCard</code>, ISO 4217 3-letter code  or 4-letter X-ISO4127-A3 code representing the unit of account for the asset.
 |-
 ! contract_url || '''(required)''' For assets of type <code>storeCard</code>, the URL containing the terms and conditions of the asset.
 |-
@@ -46,8 +46,6 @@ The following fields are added:
 ! Field !! Description
 |-
 !colspan="2"| General 
-|-
-! currency_unit || '''(required)''' ISO 4217 3-letter code representing the unit of account for the asset.
 |-
 ! asset_group || Arbitrary string describing a group of assets. Assets belonging to the same group must use the same <code>name_short</code>.
 |-
