@@ -127,7 +127,6 @@ The following fields are added:
 ! maximum_balance || the maximum amount of asset on the card for the card to be redeemable for cash, expressed in the currency unit provided in <code>name_short</code> (ex. <code>5.00</code>).
 |-
 ! maximum_balance_percentage || the maximum amount of asset on the card for the card to be redeemable for cash, expressed as a percentage of the issued amount.
-|
 |}
 
 === SKUs ===
