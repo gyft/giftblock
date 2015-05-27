@@ -108,11 +108,13 @@ The following fields are added:
 {| 
 ! Field !! Description
 |-
-! inactivity_period || ISO 8601 formatted inactivity duration after which dormancy fees are applied.
+! inactivity_period || ISO 8601 formatted inactivity duration after which dormancy fees are applied (ex. <code>P2Y</code> for 2 years).
 |-
-! fee_amount || the fee charged to the store card asset after the inactivity duration has elapsed, expressed in the currency unit provided in <code>name_short</code>.
+! fee_amount || the fee charged to the store card asset after the inactivity duration has elapsed, expressed in the currency unit provided in <code>name_short</code> (ex. <code>1.00</code>).
 |-
-! maximum_amount || the maximum amount of asset on the card for the dormancy fee to apply, expressed in the currency unit provided in <code>name_short</code>.
+! maximum_balance || the maximum amount of asset on the card for the dormancy fee to apply, expressed in the currency unit provided in <code>name_short</code> (ex. <code>5.00</code>).
+|-
+! fee_period || ISO 8601 formatted period that the fee applies (ex. <code>P1M</code> for monthly).
 |}
 
 === SKUs ===
