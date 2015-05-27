@@ -64,6 +64,8 @@ The following fields are added:
 |-
 ! dormancy_fees || Describes fees charged to the card after a certain period of inactivity.
 |-
+! cash_redemption || Describes conditions under which card is redeemable for cash or cash equivalent.
+|-
 !colspan="2"| Visual
 |-
 ! logo_url || The URL to a logo representing the issuer.
@@ -115,6 +117,14 @@ The following fields are added:
 ! maximum_balance || the maximum amount of asset on the card for the dormancy fee to apply, expressed in the currency unit provided in <code>name_short</code> (ex. <code>5.00</code>).
 |-
 ! fee_period || ISO 8601 formatted period that the fee applies (ex. <code>P1M</code> for monthly).
+|}
+
+=== Cash Redemption ===
+
+{| 
+! Field !! Description
+|-
+! maximum_balance || the maximum amount of asset on the card for the card to be redeemable for cash, expressed in the currency unit provided in <code>name_short</code> (ex. <code>5.00</code>).
 |}
 
 === SKUs ===
