@@ -2,6 +2,7 @@
 Title: Store Card Asset Definition File Extensions.
 Author: Guillaume Lebleu <giyom@gyft.com>
 Created: 2015-05-20
+Status: DRAFT
 </pre>
 
 == Abstract ==
@@ -75,10 +76,40 @@ The following fields are added:
 |-
 !colspan="2"| Commerce
 |-
-! locations_url || The URL to a list of locations accepting the asset.
+! locations || A list of locations accepting the asset, or a URL to the list of locations accepting the asset.
+|-
+! skus || a list of SKUs that the asset can be redeemed for, or a URL to the list list of SKUs that the asset can be redeemed for.
 |}
 
-=== Location file format ===
+=== Locations ===
 
-JSON format
+{| 
+! Field !! Description
+|-
+! label || name of the location.
+|-
+! altitude || the altitude of the locaiton.
+|-
+! latitude || the latitude of the location. Required if <code>proximity_uuid</code> is not specified.
+|-
+! longitude || the longitude of the locaiton. Required if <code>proximity_uuid</code> is not specified.
+|-
+! proximity_uuid || the unique identifier of the BLE beacon. Required if <code>longitude</code> and <code>latitude</code> are not specified.
+|-
+! major || major value of the BLE beacon.
+|-
+! minor || minor value of the BLE beacon 
+|}
+
+=== SKUs ===
+
+{| 
+! Field !! Description
+|-
+! label || name of the product or service
+|-
+! sku || the identifier of the product or service used by the merchant
+|-
+! upc || the registered universal identifier for the product or service
+|}
 
