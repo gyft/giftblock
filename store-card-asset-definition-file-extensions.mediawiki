@@ -124,9 +124,21 @@ The following fields are added:
 {| 
 ! Field !! Description
 |-
-! maximum_balance || the maximum amount of asset on the card for the card to be redeemable for cash, expressed in the currency unit provided in <code>name_short</code> (ex. <code>5.00</code>).
+! maximum || the maximum amount of asset on the card redeemable for cash, expressed in the currency unit provided in <code>name_short</code> (ex. <code>5.00</code>).
 |-
-! maximum_balance_percentage || the maximum amount of asset on the card for the card to be redeemable for cash, expressed as a percentage of the issued amount.
+! maximum_percentage || the maximum amount of asset on the card redeemable for cash, expressed as a percentage of the issued amount.
+|}
+
+=== Escheat ===
+
+{| 
+! Field !! Description
+|-
+! escheat_period || ISO 8601 formatted duration after which escheat applies (ex. <code>P3Y</code> for 3 years).
+|-
+! period_start_date || date of the year when <code>escheat_period</code> starts in MM-DD format (ex. <code>06-30</code>)
+|-
+! percentage || the amount of asset on the card deemed abandoned, expressed as a percentage of the card balance (ex. <code>5.00</code>).
 |}
 
 === SKUs ===
