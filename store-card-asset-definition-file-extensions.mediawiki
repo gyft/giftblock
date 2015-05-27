@@ -62,6 +62,8 @@ The following fields are added:
 |-
 ! expires || ISO 8601 formatted. Either explicit UTC date/time when the asset is no longer valid for redemption by the issuer, or period from date/time of issuance after which asset is no longer valid for redemption by the issuer.
 |-
+! dormancy_fees || Describes fees charged to the card after a certain period of inactivity.
+|-
 !colspan="2"| Visual
 |-
 ! logo_url || The URL to a logo representing the issuer.
@@ -88,7 +90,7 @@ The following fields are added:
 |-
 ! label || name of the location.
 |-
-! altitude || the altitude of the locaiton.
+! altitude || the altitude of the location.
 |-
 ! latitude || the latitude of the location. Required if <code>proximity_uuid</code> is not specified.
 |-
@@ -99,6 +101,18 @@ The following fields are added:
 ! major || major value of the BLE beacon.
 |-
 ! minor || minor value of the BLE beacon 
+|}
+
+=== Dormancy Fees ===
+
+{| 
+! Field !! Description
+|-
+! inactivity_period || ISO 8601 formatted inactivity duration after which dormancy fees are applied.
+|-
+! fee_amount || the fee charged to the store card asset after the inactivity duration has elapsed, expressed in the currency unit provided in <code>name_short</code>.
+|-
+! maximum_amount || the maximum amount of asset on the card for the dormancy fee to apply, expressed in the currency unit provided in <code>name_short</code>.
 |}
 
 === SKUs ===
