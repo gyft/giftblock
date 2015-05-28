@@ -95,7 +95,7 @@ The <code>storeCard</code field is added and defined as follows:
 
 === Dormancy Fees object ===
 
-The <code>dormancy_fees<code> object is defined as follows:
+The <code>dormancy_fees</code> object is defined as follows:
 
 {| 
 ! Field !! Description
@@ -112,7 +112,7 @@ The <code>dormancy_fees<code> object is defined as follows:
 
 === Cash Redemption object ===
 
-The <code>cash_redemption<code> object is defined as follows:
+The <code>cash_redemption</code> object is defined as follows:
 
 {| 
 ! Field !! Description
