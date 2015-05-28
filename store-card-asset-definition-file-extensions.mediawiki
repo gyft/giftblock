@@ -15,7 +15,7 @@ Gift card assets, store card assets, prepaid card assets have specific character
 
 == Specification ==
 
-=== Existing fields ===
+=== Existing Fields ===
 
 The following existing fields are re-used and their definition is refined.
 
@@ -39,9 +39,9 @@ The following existing fields are re-used and their definition is refined.
 ! image_url || For assets of type <code>storeCard</code>, the URL to an image representing the front of the card. Recommended size 1,033px x 657px (3.452" x 2.17").
 |}
 
-=== New fields ===
+=== new fields ===
 
-The following fields are added:
+The following new top-level fields are added.
 
 {| 
 ! Field !! Description
@@ -55,6 +55,16 @@ The following fields are added:
 ! country || '''(required)''' ISO 3166 2-letter code representing the country of issuance.
 |-
 ! state || 2-letter code representing the state or province of issuance.
+|}
+
+=== storeCard field ===
+
+The <code>storeCard</code field is added and defined as follows:
+
+{| 
+! Field !! Description
+|-
+!colspan="2"| Legal
 |-
 ! terms || '''(required)''' The terms and conditions displayed on the card. At most 4096 characters. 512 or less characters recommended.
 |-
@@ -80,12 +90,40 @@ The following fields are added:
 |-
 !colspan="2"| Commerce
 |-
-! locations || A list of locations accepting the asset, or a URL to the list of locations accepting the asset.
+! locations_url || A URL to the list of locations accepting the asset.
 |-
-! skus || a list of SKUs that the asset can be redeemed for, or a URL to the list list of SKUs that the asset can be redeemed for.
+! skus_url || a list of SKUs that the asset can be redeemed for, or a URL to the list list of SKUs that the asset can be redeemed for.
 |}
 
-=== Locations ===
+=== Dormancy Fees field ===
+
+{| 
+! Field !! Description
+|-
+! inactivity_period || ISO 8601 formatted inactivity duration after which dormancy fees are applied (ex. <code>P2Y</code> for 2 years).
+|-
+! fee_amount || the fee charged to the store card asset after the inactivity duration has elapsed, expressed in units of the asset (ex. <code>100</code>).
+|-
+! maximum_balance || the maximum amount of asset on the card for the dormancy fee to apply, expressed in units of the asset (ex. <code>500</code>).
+|-
+! fee_period || ISO 8601 formatted period that the fee applies (ex. <code>P1M</code> for monthly).
+|}
+
+
+=== Cash Redemption field ===
+
+{| 
+! Field !! Description
+|-
+! maximum || the maximum amount of asset on the card redeemable for cash, expressed in units of the asset (ex. <code>500</code>).
+|-
+! maximum_percentage || the maximum amount of asset on the card redeemable for cash, expressed as a percentage of the issued amount.
+|}
+
+
+=== locations file format ===
+
+The locations file is a JSON formatted file with one or more locations, each defined as follows:
 
 {| 
 ! Field !! Description
@@ -105,43 +143,7 @@ The following fields are added:
 ! minor || minor value of the BLE beacon 
 |}
 
-=== Dormancy Fees ===
-
-{| 
-! Field !! Description
-|-
-! inactivity_period || ISO 8601 formatted inactivity duration after which dormancy fees are applied (ex. <code>P2Y</code> for 2 years).
-|-
-! fee_amount || the fee charged to the store card asset after the inactivity duration has elapsed, expressed in the currency unit provided in <code>name_short</code> (ex. <code>1.00</code>).
-|-
-! maximum_balance || the maximum amount of asset on the card for the dormancy fee to apply, expressed in the currency unit provided in <code>name_short</code> (ex. <code>5.00</code>).
-|-
-! fee_period || ISO 8601 formatted period that the fee applies (ex. <code>P1M</code> for monthly).
-|}
-
-=== Cash Redemption ===
-
-{| 
-! Field !! Description
-|-
-! maximum || the maximum amount of asset on the card redeemable for cash, expressed in the currency unit provided in <code>name_short</code> (ex. <code>5.00</code>).
-|-
-! maximum_percentage || the maximum amount of asset on the card redeemable for cash, expressed as a percentage of the issued amount.
-|}
-
-=== Escheat ===
-
-{| 
-! Field !! Description
-|-
-! escheat_period || ISO 8601 formatted duration after which escheat applies (ex. <code>P3Y</code> for 3 years).
-|-
-! period_start_date || date of the year when <code>escheat_period</code> starts in MM-DD format (ex. <code>06-30</code>)
-|-
-! percentage || the amount of asset on the card deemed abandoned, expressed as a percentage of the card balance (ex. <code>5.00</code>).
-|}
-
-=== SKUs ===
+=== SKUs file format ===
 
 {| 
 ! Field !! Description
