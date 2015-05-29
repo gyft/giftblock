@@ -39,7 +39,7 @@ The following existing fields are re-used and their definition is refined.
 ! image_url || For assets of type <code>storeCard</code>, the URL to an image representing the front of the card. Recommended size 1,033px x 657px (3.452" x 2.17").
 |}
 
-=== new fields ===
+=== New fields ===
 
 The following new top-level fields are added.
 
@@ -48,9 +48,9 @@ The following new top-level fields are added.
 |-
 ! asset_group || Arbitrary string describing a group of assets. Assets belonging to the same group must use the same <code>name_short</code>.
 |-
-! country || '''(required)''' ISO 3166 2-letter code representing the country of issuance.
+! country || '''(required)''' ISO 3166-1 2-letter code representing the country of issuance.
 |-
-! state || 2-letter code representing the state or province of issuance.
+! state || ISO 3166-2 2-letter code representing the subdivision, state or province of issuance. Ex. <code>CA</code> for California.
 |-
 ! store_card || An object containing new fields for assets of type <code>storeCard</code>.
 |}
@@ -68,7 +68,9 @@ The <code>storeCard</code field is added and defined as follows:
 |-
 !colspan="2"| Financial
 |-
-! expires || ISO 8601 formatted. Either explicit UTC date/time when the asset is no longer valid for redemption by the issuer, or period from date/time of issuance after which asset is no longer valid for redemption by the issuer.
+! expiration_date || ISO 8601 formatted. Explicit UTC date/time when the asset is no longer valid for redemption by the issuer, or period from date/time of issuance after which asset is no longer valid for redemption by the issuer.
+|-
+! expiration_timeout || ISO 8601 formatted. Period since timestamp of the block in which the asset was issued after which asset is no longer valid for redemption by the issuer. If <code>expiration_date</code> and <code>expiration_timeout</code> are both specified, the earliest date/time applies.
 |-
 ! dormancy_fees || Describes fees charged to the card after a certain period of inactivity.
 |-
@@ -80,17 +82,19 @@ The <code>storeCard</code field is added and defined as follows:
 |-
 ! back_image_url || The URL to an image representing the back of the card. Recommended size 1,033px x 657px (3.452" x 2.17").
 |-
-! primary_color || The foreground color of the card, as a CSS-style RGB triple.
+! brand_color || The color of the brand, as a CSS-style RGB triple.
 |-
 ! background_color || The background color of the card, as a CSS-style RGB triple.
 |-
 ! text_color || The color of the text on the card, as a CSS-style RGB triple.
 |-
+! label_color || The color of the field labels on the card, as a CSS-style RGB triple.
+|-
 !colspan="2"| Commerce
 |-
 ! locations_url || A URL to the list of locations accepting the asset.
 |-
-! skus_url || a list of SKUs that the asset can be redeemed for, or a URL to the list list of SKUs that the asset can be redeemed for.
+! skus_url || A URL to the list list of SKUs that the asset can be redeemed for.
 |}
 
 === Dormancy Fees object ===
@@ -122,30 +126,44 @@ The <code>cash_redemption</code> object is defined as follows:
 ! maximum_percentage || the maximum amount of asset on the card redeemable for cash, expressed as a percentage of the issued amount.
 |}
 
+The concept of a card is foreign to open assets. The wallet will group multiple issuances of the same asset and present a lump balance of the "card" to the user. Therefore, an accounting principle must be followed to compute <code>maximum_percentage</code>. If the card is composed of multiple issuances of the same asset, a FIFO principle is followed to compute the <code>maximum_percentage</code>. For instance, if <code>maximum_percentage</code> is 10% and a card was issued 50 and then another 50, but only 47.5 was redeemed, we assume the 47.5 was spent first, so 2.5 is left of the first issuance and can be redeemed as cash, and 5 of the 50 left on the second issuance can be redeemed as cash, so 7.5 total (not 5% of 52.5).
 
-=== locations file format ===
 
-The locations file is a JSON formatted file with one or more locations, each defined as follows:
+=== Locations file format ===
+
+The locations file is a JSON formatted file with one or more redemption locations, each defined as follows:
+
+For each location, either <code>url</code>, <code>altitude</code> and <code>longitude</code>, or <code>beacon_proximity_uuid</code> is required.
 
 {| 
 ! Field !! Description
 |-
 ! label || name of the location.
 |-
+! url || URL of the location
+|-
 ! altitude || the altitude of the location.
 |-
-! latitude || the latitude of the location. Required if <code>proximity_uuid</code> is not specified.
+! latitude || the latitude of the location. 
 |-
-! longitude || the longitude of the locaiton. Required if <code>proximity_uuid</code> is not specified.
+! longitude || the longitude of the locaiton. 
 |-
-! proximity_uuid || the unique identifier of the BLE beacon. Required if <code>longitude</code> and <code>latitude</code> are not specified.
+! beacon_proximity_uuid || the unique identifier of the BLE beacon. 
 |-
-! major || major value of the BLE beacon.
+! beacon_major || major value of the BLE beacon.
 |-
-! minor || minor value of the BLE beacon 
+! beacon_minor || minor value of the BLE beacon.
 |}
 
+Example:
+
+<code>{'locations': [ { "label": "Online store", "latitude": "37.4852778", "longitude": "-122.2352778" } ]}`</code>
+
 === SKUs file format ===
+
+The SKUs file is a JSON formatted file with one or more redemption SKU, each defined as follows:
+
+For each SKU, either <code>sku</code> or <code>upc</code> is required.
 
 {| 
 ! Field !! Description
@@ -157,3 +175,6 @@ The locations file is a JSON formatted file with one or more locations, each def
 ! upc || the registered universal identifier for the product or service
 |}
 
+Example:
+
+<code>{'skus': [ { "label": "example product", "upc": "123456789999" } ]}`</code>
